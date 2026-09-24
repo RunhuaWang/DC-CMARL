@@ -1,0 +1,59 @@
+# 6x6 single-cell fixed-responsibility MAPPO endpoint, lambda=0.
+[experiment]
+profile = "fixed_responsibility_small_6x6_mappo_lambda0_seed0"
+environment_config = "environment.toml"
+activation = "tanh"
+device = "auto"
+torch_num_threads = 1
+randomize_actor_target_order = true
+independent_actors = true
+independent_actor_init_seed_base = 100
+
+[training]
+num_parallel_envs = 32
+rollout_length = 128
+total_environment_steps = 500000
+ppo_epochs = 5
+minibatch_size = 2048
+actor_learning_rate = 0.0003
+critic_learning_rate = 0.0003
+ppo_clip = 0.2
+max_grad_norm = 0.5
+entropy_coefficient_start = 0.02
+entropy_coefficient_end = 0.02
+entropy_decay_fraction = 0.70
+avg_rate_ema = 0.05
+value_anchor_coefficient = 0.001
+normalize_combined_advantage = true
+n_step = 32
+evaluation_interval = 25000
+early_stopping = false
+early_stopping_patience = 3
+objective_tolerance = 0.005
+occupancy_tolerance = 0.05
+analytic_tolerance = 0.08
+
+[environment]
+action_slip_probability = 0.0
+
+[evaluation]
+seeds = [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019]
+burn_in_steps = 100
+evaluation_steps = 2000
+
+[assignment]
+fixed_lambda = 0.0
+training_seed = 0
+agent_targets = [["S1", "H1"], ["S4", "H3"], ["S2", "H2"], ["S3", "H4"]]
+actor_input_dimension = 56
+critic_input_dimension = 16
+reward_eligibility = "owner_only"
+cost_scope = "all_physical_hazard_exposure"
+progress_every_updates = 5
+
+[sampling]
+initial_state_distribution = "uniform_without_replacement_all_grid_cells"
+restart_interval_per_environment = 1000
+reset_rng_domain = 1381192786
+best_selection = "fixed_initial_canonical_objective"
+

@@ -1,0 +1,47 @@
+coords = "pdf_xy_1_based"
+
+grid_width = 6
+grid_height = 6
+num_agents = 4
+monitoring_radius = 0
+action_slip_probability = 0.0
+reward_normalizer = 8.0
+dual_upper_bound = 2.5
+use_agent_id = false
+
+initial_positions = [
+    [3, 3],
+    [3, 4],
+    [4, 3],
+    [4, 4],
+]
+
+[target_centers]
+S1 = [1, 4]
+S2 = [3, 1]
+S3 = [6, 3]
+S4 = [4, 6]
+H1 = [1, 1]
+H2 = [6, 1]
+H3 = [1, 6]
+H4 = [6, 6]
+
+[target_values]
+S1 = 1.0
+S2 = 1.0
+S3 = 1.0
+S4 = 1.0
+H1 = 1.8
+H2 = 2.2
+H3 = 2.2
+H4 = 1.8
+
+[hazard_intensities]
+S1 = 0.0
+S2 = 0.0
+S3 = 0.0
+S4 = 0.0
+H1 = 0.8
+H2 = 0.6
+H3 = 0.4
+H4 = 0.2

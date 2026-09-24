@@ -1,0 +1,50 @@
+# HRMR canonical formal environment with a spatially balanced hazardous layout.
+# Each side contains one value-2.2 and one value-1.8 hazardous target.
+# Coordinates are PDF (x,y), one-based.
+coords = "pdf_xy_1_based"
+
+grid_width = 13
+grid_height = 13
+num_agents = 4
+monitoring_radius = 1
+action_slip_probability = 0.0
+reward_normalizer = 8.0
+dual_upper_bound = 2.5
+use_agent_id = false
+
+initial_positions = [
+    [6, 6],
+    [6, 8],
+    [8, 6],
+    [8, 8],
+]
+
+[target_centers]
+S1 = [2, 7]
+S2 = [7, 2]
+S3 = [12, 7]
+S4 = [7, 12]
+H1 = [3, 4]
+H2 = [11, 4]
+H3 = [3, 10]
+H4 = [11, 10]
+
+[target_values]
+S1 = 1.0
+S2 = 1.0
+S3 = 1.0
+S4 = 1.0
+H1 = 1.8
+H2 = 2.2
+H3 = 2.2
+H4 = 1.8
+
+[hazard_intensities]
+S1 = 0.0
+S2 = 0.0
+S3 = 0.0
+S4 = 0.0
+H1 = 0.8
+H2 = 0.6
+H3 = 0.4
+H4 = 0.2
